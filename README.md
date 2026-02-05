@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="Screenshot 2026-02-05 232331" src="https://github.com/user-attachments/assets/c736ca06-0bef-485a-8d9c-60efe32956ab" /># Airbnb Clone Project
+# Airbnb Clone Project
 
 A full-stack web application inspired by Airbnb, built using Node.js, Express, and MongoDB. This platform allows users to view, create, and review property listings.
 
