@@ -27,7 +27,7 @@ A full-stack web application inspired by Airbnb, built using Node.js, Express, a
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/harix10/airbnb-clone-fullstack.git
     cd AIRBNB
     ```
 
