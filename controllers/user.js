@@ -51,3 +51,5 @@ module.exports.logout =  (req,res,next) => {
     }
   });
 };
+
+// MVC framework

@@ -19,3 +19,5 @@ router.post("/login",saveRedirectUrl,passport.authenticate("local", { failureRed
 router.get("/logout",userController.logout);
 
 module.exports = router; 
+
+// MVC framework
