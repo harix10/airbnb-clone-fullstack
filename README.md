@@ -2,6 +2,8 @@
 
 A full-stack web application inspired by Airbnb, built using Node.js, Express, and MongoDB. This platform allows users to view, create, and review property listings.
 
+**🚀 Live Demo:** [View Deployed App on Render](https://airbnb-clone-mm1a.onrender.com) 
+
 ## Features
 
 *   **Listings:** Create, read, update, and delete (CRUD) property listings.
@@ -9,12 +11,17 @@ A full-stack web application inspired by Airbnb, built using Node.js, Express, a
 *   **Authentication:** User signup and login functionality.
 *   **Database:** Data persistence using MongoDB and Mongoose.
 *   **Templating:** Server-side rendering using EJS (Embedded JavaScript).
+*   **Image Uploads:** Cloud integration using Cloudinary.
+*   **Interactive Maps:** Geocoding and map rendering using OpenStreetMap and Leaflet.
 
 ## Tech Stack
 
 *   **Backend:** Node.js, Express.js
-*   **Database:** MongoDB, Mongoose
-*   **Frontend:** EJS, CSS, Bootstrap (if applicable)
+*   **Database:** MongoDB Atlas, Mongoose
+*   **Frontend:** EJS, CSS, Bootstrap
+*   **Authentication:** Passport.js
+*   **Storage & Maps:** Cloudinary, Leaflet, OpenStreetMap
+*   **Hosting:** Render
 
 ## Getting Started
 
@@ -39,8 +46,11 @@ A full-stack web application inspired by Airbnb, built using Node.js, Express, a
 3.  **Environment Setup:**
     Create a `.env` file in the root directory to store sensitive information (like database credentials or API keys).
     ```text
-    DB_URL=mongodb://localhost:27017/your-db-name
-    SECRET=your_secret_key
+    CLOUD_NAME=your_cloudinary_cloud_name
+    CLOUD_API_KEY=your_cloudinary_api_key
+    CLOUD_API_SECRET=your_cloudinary_api_secret
+    ATLASDB_URL=your_mongodb_atlas_connection_string
+    SECRET=your_session_secret
     ```
 
 4.  **Run the application:**
@@ -51,7 +61,7 @@ A full-stack web application inspired by Airbnb, built using Node.js, Express, a
     ```
 
 5.  **Usage:**
-    Open your browser and navigate to `http://localhost:8080` (or port 3000, depending on your configuration).
+    Open your browser and navigate to `http://localhost:3030`.
 
     **Screenshots**
     <img width="1920" height="1038" alt="Screenshot 2026-02-05 232757" src="https://github.com/user-attachments/assets/1d506a00-a9fc-4d5a-947f-936f8ff8bf99" />
@@ -63,12 +73,3 @@ A full-stack web application inspired by Airbnb, built using Node.js, Express, a
 
 
     
-
-
-
-
-
-
-
-
-

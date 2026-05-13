@@ -1,6 +1,17 @@
 <% layout('layouts/boilerplate') -%>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <style>
+        .starability-slot, .starability-result {
+            transform: scale(0.75);
+            transform-origin: left center;
+        }
+        .review-card {
+            padding: 0.5rem 1.5rem;
+        }
+    </style>
+
     <div class="row show-card">
     <div class="card col-6 offset-3 listing-card">
     <br> 
@@ -77,15 +88,17 @@
           <h4>All Reviews:</h4>
           <div class="row">
           <% for(let el of list.reviews){ %>
-            <div class="card col-5 mb-3 ms-2">
+            <div class="card col-5 mb-3 ms-2 review-card">
              <div class="card-body">
                <h5 class="card-title mt-2">@<%= el.author.username %></h5>
                 <p class="starability-result card-text" data-rating="<%= el.rating %>"></p>
                <p class="card-text"><%= el.comment %></p>
               </div> 
+              <% if (currentUser && currentUser._id.equals(el.author._id)) { %>
               <form class="mb-2 mt-2" method="POST" action="/listing/<%= list._id %>/reviews/<%= el._id %>?_method=DELETE">
                 <button class="btn btn-sm btn-dark">Delete</button>
                </form>
+              <% } %>
           </div>     
           <% } %>
           </div>   
