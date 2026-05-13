@@ -64,12 +64,11 @@ A full-stack web application inspired by Airbnb, built using Node.js, Express, a
     Open your browser and navigate to `http://localhost:3030`.
 
     **Screenshots**
-    <img width="1920" height="1038" alt="Screenshot 2026-02-05 232757" src="https://github.com/user-attachments/assets/1d506a00-a9fc-4d5a-947f-936f8ff8bf99" />
-    <img width="1920" height="1042" alt="Screenshot 2026-02-05 232403" src="https://github.com/user-attachments/assets/3bc6bf42-c564-4eb0-a29b-0c15a45b3f68" />
-    <img width="1920" height="1038" alt="Screenshot 2026-02-05 232806" src="https://github.com/user-attachments/assets/8503a560-9308-4cf1-a80d-84b8786c77f9" />
-    <img width="1920" height="1042" alt="Screenshot 2026-02-05 232331" src="https://github.com/user-attachments/assets/23800814-b46c-422d-b703-42aecac29361" />
-    <img width="1920" height="1042" alt="Screenshot 2026-02-05 232435" src="https://github.com/user-attachments/assets/42dec3d4-fc81-4a91-a23c-0f28af9b4878" />
-    <img width="1920" height="1041" alt="Screenshot 2026-02-05 232743" src="https://github.com/user-attachments/assets/8a4f540a-d87a-4238-9401-51a1c59a9816" />
+    <img width="1898" height="937" alt="Screenshot 2026-05-13 182922" src="https://github.com/user-attachments/assets/2759f044-cecc-401a-a537-b11bb7330669" />
+    <img width="1899" height="942" alt="Screenshot 2026-05-13 182830" src="https://github.com/user-attachments/assets/75632ada-b4f0-4c12-8946-bd6d2e8e5be6" />
+    <img width="1900" height="949" alt="Screenshot 2026-05-13 182734" src="https://github.com/user-attachments/assets/8be2bd5f-c613-47e8-91d2-e51eefb8a4ac" />
+    <img width="1899" height="940" alt="Screenshot 2026-05-13 182757" src="https://github.com/user-attachments/assets/e0e37fa1-0d62-43fc-bac0-07915ad388b3" />
+    <img width="1899" height="945" alt="Screenshot 2026-05-13 182807" src="https://github.com/user-attachments/assets/96b0d9f0-b80e-4466-bd81-9a912ebf5b02" />
 
 
     
