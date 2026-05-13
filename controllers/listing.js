@@ -27,11 +27,23 @@ module.exports.show = async(req,res)=>{
 };
 
 module.exports.create = async (req,res,next)=>{
-  if(!req.body.listing.image){
-    req.body.listing.image = undefined;
-  }
+  let url = req.file.path;
+  let filename = req.file.filename;
+  req.body.listing.image = {url,filename};
+
+  // Geocode location using OpenStreetMap
+  let response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(req.body.listing.location + ', ' + req.body.listing.country)}`, {
+      headers: { 'User-Agent': 'AirbnbApp/1.0' }
+  });
+  let geoData = await response.json();
+
   let newElm = new Listing(req.body.listing);
   newElm.owner = req.user._id;
+  if (geoData && geoData.length > 0) {
+      newElm.geometry = { type: 'Point', coordinates: [parseFloat(geoData[0].lon), parseFloat(geoData[0].lat)] };
+  } else {
+      newElm.geometry = { type: 'Point', coordinates: [0, 0] }; // Default fallback
+  }
   await newElm.save();
   req.flash("success","New Listing Created!");
   res.redirect('/listing');
@@ -44,12 +56,33 @@ module.exports.create = async (req,res,next)=>{
      req.flash("error","Listing you requested is not available!");
      return res.redirect("/listing");
     }
-    res.render('listings/edit.ejs',{list});
+    
+    let imageUrl = list.image.url;
+    imageUrl = imageUrl.replace("/upload","/upload/w_250");
+    res.render('listings/edit.ejs',{list , imageUrl});
   };
 
   module.exports.update = async (req,res)=>{
     let {id} = req.params;
-    await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+
+    // Geocode updated location
+    let response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(req.body.listing.location + ', ' + req.body.listing.country)}`, {
+        headers: { 'User-Agent': 'AirbnbApp/1.0' }
+    });
+    let geoData = await response.json();
+    let geometry = (geoData && geoData.length > 0) 
+        ? { type: 'Point', coordinates: [parseFloat(geoData[0].lon), parseFloat(geoData[0].lat)] }
+        : { type: 'Point', coordinates: [0, 0] };
+    
+    let listing = await Listing.findByIdAndUpdate(id, { ...req.body.listing, geometry });
+    
+   if ( typeof (req.file) !== "undefined"){ 
+   let url = req.file.path;
+   let filename = req.file.filename;
+   listing.image = {url , filename};
+   await listing.save();
+   }
+
     req.flash("success","Listing Updated!");
     res.redirect(`/listing/${id}`);
   };

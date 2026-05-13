@@ -1,12 +1,13 @@
 <% layout('layouts/boilerplate') -%>
-<body>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <div class="row show-card">
     <div class="card col-6 offset-3 listing-card">
     <br> 
     <h2><%= list.title %></h2>
     </div>
     <div class="card col-4 offset-3 listing-card">
-    <img src="<%= list.image %>" class="card-img-top show-img" alt="listing_img" >
+    <img src="<%= list.image.url %>" class="card-img-top show-img" alt="listing_img" >
     </div>
     <div class="card-body col-7 offset-3">
     <p class="card-text ">
@@ -29,6 +30,15 @@
 
     <% } %>
     
+    <div class="row col-6 offset-3 mt-4 mb-4">
+        <hr>
+        <h4>Where you'll be</h4>
+        <div id="map" 
+             style="height: 400px; width: 100%; border-radius: 10px; z-index: 1;"
+             data-coordinates="<%= JSON.stringify(list.geometry ? list.geometry.coordinates : [0,0]) %>"
+             data-title="<%= list.title %>"></div>
+    </div>
+
     <% if (currentUser) { %>
     <div class="row col-6 offset-3 mt-4">
         <hr>
@@ -80,4 +90,4 @@
           <% } %>
           </div>   
     </div>
-</body>
+    <script src="/css/js/map.js?v=4"></script>
